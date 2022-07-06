@@ -41,6 +41,23 @@ public class LengthTest {
         assertThat(hundredCentimeter, is(equalTo(pointZeroZeroOneKilometer)));
     }
 
+    @Test
+    public void shouldCheckEqualityWhenOneMeterPlusHundredCentimetersIsComparedWithTwoMeters(){
+        Length oneMeter = meter(1);
+        Length hundredCentimeters = centimeter(100);
+        Length twoMeters = meter(2.0);
+        Length additionOfTwoLengths = Length.meter(oneMeter.plus(hundredCentimeters));
+        assertThat(additionOfTwoLengths, is(equalTo(twoMeters)));
+    }
+
+    @Test
+    public void shouldCheckEqualityWhenTwoHundredCentimetersPlusOneKilometerISComparedWithOneLakhTwoHundredCentimeters(){
+        Length twoHundredCentimeters = centimeter(200);
+        Length oneKilometer = kilometer(1);
+        Length oneLakhTwoHundredCentimeters = centimeter(100200.0);
+        Length additionOfTwoLengths = Length.centimeter(twoHundredCentimeters.plus(oneKilometer));
+        assertThat(additionOfTwoLengths, is(equalTo(oneLakhTwoHundredCentimeters)));
+    }
 
 }
 

@@ -7,13 +7,21 @@ public class Length {
     private final Unit unit;
 
 
+    public double plus(Length anotherMagnitude) {
+
+//        System.out.println(((this.magnitude * this.unit.baseUnitFactor) + (anotherMagnitude.magnitude * anotherMagnitude.unit.baseUnitFactor))/this.unit.baseUnitFactor);
+        return (((this.magnitude * this.unit.baseUnitFactor) + (anotherMagnitude.magnitude * anotherMagnitude.unit.baseUnitFactor))/this.unit.baseUnitFactor);
+    }
+
+
     private static class Unit {
 
         final static Unit meter = new Unit(1);
         final static Unit centimeter = new Unit(0.01);
-
         final static Unit kilometer = new Unit(1000);
+
         private final double baseUnitFactor;
+
 
         public Unit(double baseUnitFactor) {
             this.baseUnitFactor = baseUnitFactor;
@@ -32,6 +40,7 @@ public class Length {
     public static Length kilometer(double magnitude) {
         return new Length(magnitude, Unit.kilometer);
     }
+
 
     public double convertToBase() {
         return magnitude * (unit.baseUnitFactor / Unit.meter.baseUnitFactor);

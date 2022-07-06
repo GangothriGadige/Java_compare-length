@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tw.LengthTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2022-07-06T10:54:48" hostname="LAPTOP-N34MENE0" time="0.055">
+<testsuite name="com.tw.LengthTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-07-06T15:14:02" hostname="Siddhis-MacBook-Air.local" time="0.054">
   <properties/>
-  <testcase name="shouldCheckEqualityWhenOneCentimeterIsComparedWithAnotherOneCentimeter()" classname="com.tw.LengthTest" time="0.041"/>
-  <testcase name="shouldCheckInequalityWhenOneCentimeterIsComparedWithTwoCentimeters()" classname="com.tw.LengthTest" time="0.003"/>
-  <testcase name="shouldCheckEqualityWhenOneMeterIsComparedWithHundredCentimeter()" classname="com.tw.LengthTest" time="0.003"/>
-  <testcase name="shouldCheckEqualityWhenHundredCentimeterIsComparedWithZeroPointZeroZeroOneKilometer()" classname="com.tw.LengthTest" time="0.004"/>
-  <system-out><![CDATA[]]></system-out>
+  <testcase name="shouldCheckEqualityWhenOneCentimeterIsComparedWithAnotherOneCentimeter()" classname="com.tw.LengthTest" time="0.034"/>
+  <testcase name="shouldCheckEqualityWhenOneMeterPlusHundredCentimetersIsComparedWithTwoMeters()" classname="com.tw.LengthTest" time="0.006"/>
+  <testcase name="shouldCheckInequalityWhenOneCentimeterIsComparedWithTwoCentimeters()" classname="com.tw.LengthTest" time="0.002"/>
+  <testcase name="shouldCheckEqualityWhenOneMeterIsComparedWithHundredCentimeter()" classname="com.tw.LengthTest" time="0.002"/>
+  <testcase name="shouldCheckEqualityWhenHundredCentimeterIsComparedWithPointZeroZeroOneKilometer()" classname="com.tw.LengthTest" time="0.001"/>
+  <testcase name="shouldCheckEqualityWhenTwoHundredCentimetersPlusOneKilometerISComparedWithOneLakhTwoHundredCentimeters()" classname="com.tw.LengthTest" time="0.001"/>
+  <system-out><![CDATA[2.0
+100200.0
+]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
