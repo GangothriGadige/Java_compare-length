@@ -2,25 +2,47 @@ package com.tw;
 
 import org.junit.jupiter.api.Test;
 
+import static com.tw.Length.*;
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.core.IsNot.not;
+import static org.hamcrest.Matchers.*;
+
 
 public class LengthTest {
 
     @Test
-    public void shouldCheckEqualityWhenOneCentimeterIsComparedWithAnotherOneCentimeter(){
-        Length oneCentimeter = new Length(1);
-        Length anotherOneCentimeter = new Length(1);
+    public void shouldCheckEqualityWhenOneCentimeterIsComparedWithAnotherOneCentimeter() {
+        Length oneCentimeter = centimeter(1);
+        Length anotherOneCentimeter = centimeter(1);
 
-        assertThat(oneCentimeter,equalTo(anotherOneCentimeter));
+        assertThat(oneCentimeter, is(equalTo(anotherOneCentimeter)));
     }
 
     @Test
-    public void shouldCheckEqualityWhenTwoCentimeterIsComparedWithOneCentimeter(){
-        Length twoCentimeter = new Length(2);
-        Length oneCentimeter = new Length(1);
+    public void shouldCheckInequalityWhenOneCentimeterIsComparedWithTwoCentimeters() {
+        Length oneCentimeter = centimeter(1);
+        Length twoCentimeters = centimeter(2);
 
-        assertThat(twoCentimeter, not(equalTo(oneCentimeter)));
+        assertThat(oneCentimeter, is(not(equalTo(twoCentimeters))));
     }
+
+    @Test
+    public void shouldCheckEqualityWhenOneMeterIsComparedWithHundredCentimeter() {
+        Length oneMeter = meter(1);
+        Length hundredCentimeter = centimeter(100);
+
+        assertThat(oneMeter, is(equalTo(hundredCentimeter)));
+    }
+
+    @Test
+    public void shouldCheckEqualityWhenHundredCentimeterIsComparedWithPointZeroZeroOneKilometer() {
+        Length hundredCentimeter = centimeter(100);
+        Length pointZeroZeroOneKilometer = kilometer(0.001);
+
+        assertThat(hundredCentimeter, is(equalTo(pointZeroZeroOneKilometer)));
+    }
+
+
 }
+
+
+

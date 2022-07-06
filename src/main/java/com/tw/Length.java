@@ -3,22 +3,60 @@ package com.tw;
 import java.util.Objects;
 
 public class Length {
-    private final int length;
+    private final double magnitude;
+    private final Unit unit;
 
-    Length(int length) {
-        this.length = length;
+
+    private static class Unit {
+
+        final static Unit meter = new Unit(1);
+        final static Unit centimeter = new Unit(0.01);
+
+        final static Unit kilometer = new Unit(1000);
+        private final double baseUnitFactor;
+
+        public Unit(double baseUnitFactor) {
+            this.baseUnitFactor = baseUnitFactor;
+        }
     }
 
+
+    public static Length meter(double magnitude) {
+        return new Length(magnitude, Unit.meter);
+    }
+
+    public static Length centimeter(double magnitude) {
+        return new Length(magnitude, Unit.centimeter);
+    }
+
+    public static Length kilometer(double magnitude) {
+        return new Length(magnitude, Unit.kilometer);
+    }
+
+    public double convertToBase() {
+        return magnitude * (unit.baseUnitFactor / Unit.meter.baseUnitFactor);
+    }
+
+    private Length(double value, Unit unit) {
+        this.magnitude = value;
+        this.unit = unit;
+    }
+
+
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Length length1 = (Length) o;
-        return length == length1.length;
+    public boolean equals(Object object) {
+        if (this == object) return true;
+        if (object == null || getClass() != object.getClass()) return false;
+        Length that = (Length) object;
+        return this.convertToBase() == that.convertToBase();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(length);
+        return Objects.hash(magnitude);
     }
+
+
 }
+
+
