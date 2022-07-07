@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.tw.LengthTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-07-06T15:14:02" hostname="Siddhis-MacBook-Air.local" time="0.054">
+<testsuite name="com.tw.LengthTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2022-07-07T05:54:26" hostname="Siddhis-MacBook-Air.local" time="0.066">
   <properties/>
-  <testcase name="shouldCheckEqualityWhenOneCentimeterIsComparedWithAnotherOneCentimeter()" classname="com.tw.LengthTest" time="0.034"/>
-  <testcase name="shouldCheckEqualityWhenOneMeterPlusHundredCentimetersIsComparedWithTwoMeters()" classname="com.tw.LengthTest" time="0.006"/>
-  <testcase name="shouldCheckInequalityWhenOneCentimeterIsComparedWithTwoCentimeters()" classname="com.tw.LengthTest" time="0.002"/>
+  <testcase name="shouldCheckEqualityWhenOneCentimeterIsComparedWithAnotherOneCentimeter()" classname="com.tw.LengthTest" time="0.038"/>
+  <testcase name="shouldCheckEqualityWhenOneMeterPlusHundredCentimetersIsComparedWithTwoMeters()" classname="com.tw.LengthTest" time="0.001"/>
+  <testcase name="shouldCheckInequalityWhenOneCentimeterIsComparedWithTwoCentimeters()" classname="com.tw.LengthTest" time="0.004"/>
   <testcase name="shouldCheckEqualityWhenOneMeterIsComparedWithHundredCentimeter()" classname="com.tw.LengthTest" time="0.002"/>
-  <testcase name="shouldCheckEqualityWhenHundredCentimeterIsComparedWithPointZeroZeroOneKilometer()" classname="com.tw.LengthTest" time="0.001"/>
-  <testcase name="shouldCheckEqualityWhenTwoHundredCentimetersPlusOneKilometerISComparedWithOneLakhTwoHundredCentimeters()" classname="com.tw.LengthTest" time="0.001"/>
-  <system-out><![CDATA[2.0
-100200.0
-]]></system-out>
+  <testcase name="shouldCheckEqualityWhenHundredCentimeterIsComparedWithPointZeroZeroOneKilometer()" classname="com.tw.LengthTest" time="0.002"/>
+  <testcase name="shouldCheckEqualityWhenTwoHundredCentimetersPlusOneKilometerISComparedWithOneLakhTwoHundredCentimeters()" classname="com.tw.LengthTest" time="0.005"/>
+  <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

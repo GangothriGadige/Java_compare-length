@@ -6,12 +6,9 @@ public class Length {
     private final double magnitude;
     private final Unit unit;
 
-
-    public double plus(Length anotherMagnitude) {
-
-//        System.out.println(((this.magnitude * this.unit.baseUnitFactor) + (anotherMagnitude.magnitude * anotherMagnitude.unit.baseUnitFactor))/this.unit.baseUnitFactor);
-        return (((this.magnitude * this.unit.baseUnitFactor) + (anotherMagnitude.magnitude * anotherMagnitude.unit.baseUnitFactor))/this.unit.baseUnitFactor);
-    }
+        public Length plus(Length lengthToBeConverted) {
+            return new Length(magnitude + lengthToBeConverted.convertToUnit(unit), unit);
+        }
 
 
     private static class Unit {
@@ -42,8 +39,8 @@ public class Length {
     }
 
 
-    public double convertToBase() {
-        return magnitude * (unit.baseUnitFactor / Unit.meter.baseUnitFactor);
+    public double convertToUnit(Unit inputUnit) {
+        return magnitude * (unit.baseUnitFactor / inputUnit.baseUnitFactor);
     }
 
     private Length(double value, Unit unit) {
@@ -57,7 +54,7 @@ public class Length {
         if (this == object) return true;
         if (object == null || getClass() != object.getClass()) return false;
         Length that = (Length) object;
-        return this.convertToBase() == that.convertToBase();
+        return this.convertToUnit(Unit.meter) == that.convertToUnit(Unit.meter);
     }
 
     @Override
