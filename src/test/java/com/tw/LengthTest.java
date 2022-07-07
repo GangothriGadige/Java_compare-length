@@ -59,6 +59,26 @@ public class LengthTest {
         assertThat(twoHundredCentimeters.plus(oneKilometer), is(equalTo(oneLakhTwoHundredCentimeters)));
     }
 
+    @Test
+    public void shouldCheckEqualityWhenOneMeterMinusFiftyCentimetersIsComparedWithPointFiveMeters(){
+        Length oneMeter = meter(1);
+        Length fiftyCentimeters = centimeter(50);
+        Length pointFive = meter(0.5);
+
+        assertThat(oneMeter.minus(fiftyCentimeters), is(equalTo(pointFive)));
+    }
+
+    @Test
+    public void shouldCheckTwoThousandCentimetersMinusOneMeterIsComparedWithOneThousandNineHundredCentimeters(){
+        Length twoThousandCentimeters = centimeter(2000);
+        Length oneMeter = meter(1);
+        Length oneThousandNineHundredCentimeters = centimeter(1900);
+
+        assertThat(twoThousandCentimeters.minus(oneMeter), is(equalTo(oneThousandNineHundredCentimeters)));
+    }
+
+
+
 }
 
 

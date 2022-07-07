@@ -9,6 +9,10 @@ public class Length {
         public Length plus(Length lengthToBeConverted) {
             return new Length(magnitude + lengthToBeConverted.convertToUnit(unit), unit);
         }
+        public Length minus(Length lengthToBeConverted) {
+            return new Length(magnitude - lengthToBeConverted.convertToUnit(unit), unit);
+        }
+
 
 
     private static class Unit {
