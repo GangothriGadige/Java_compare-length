@@ -2,71 +2,51 @@ package com.tw;
 
 import java.util.Objects;
 
-public class Length {
-    private final double magnitude;
-    private final Unit unit;
+public class Length extends Measurement<Length> {
 
-        public Length plus(Length lengthToBeConverted) {
-            return new Length(magnitude + lengthToBeConverted.convertToUnit(unit), unit);
-        }
-        public Length minus(Length lengthToBeConverted) {
-            return new Length(magnitude - lengthToBeConverted.convertToUnit(unit), unit);
-        }
-
-
-
-    private static class Unit {
-
-        final static Unit meter = new Unit(1);
-        final static Unit centimeter = new Unit(0.01);
-        final static Unit kilometer = new Unit(1000);
-
-        private final double baseUnitFactor;
-
-
-        public Unit(double baseUnitFactor) {
-            this.baseUnitFactor = baseUnitFactor;
-        }
+    private Length(double magnitude, Unit unit) {
+        super(magnitude, unit);
     }
 
 
+    private static class LengthUnit extends Unit {
+        private final static LengthUnit meter = new LengthUnit(1);
+        private final static LengthUnit centimeter = new LengthUnit(0.01);
+        private final static LengthUnit kilometer = new LengthUnit(1000);
+
+
+        public LengthUnit(double baseUnitFactor) {
+            super(baseUnitFactor);
+        }
+
+        @Override
+        Unit baseUnit() {
+            return meter;
+        }
+    }
+
     public static Length meter(double magnitude) {
-        return new Length(magnitude, Unit.meter);
+        return new Length(magnitude, LengthUnit.meter);
     }
 
     public static Length centimeter(double magnitude) {
-        return new Length(magnitude, Unit.centimeter);
+
+        return new Length(magnitude, LengthUnit.centimeter);
     }
 
     public static Length kilometer(double magnitude) {
-        return new Length(magnitude, Unit.kilometer);
-    }
 
-
-    public double convertToUnit(Unit inputUnit) {
-        return magnitude * (unit.baseUnitFactor / inputUnit.baseUnitFactor);
-    }
-
-    private Length(double value, Unit unit) {
-        this.magnitude = value;
-        this.unit = unit;
-    }
-
-
-    @Override
-    public boolean equals(Object object) {
-        if (this == object) return true;
-        if (object == null || getClass() != object.getClass()) return false;
-        Length that = (Length) object;
-        return this.convertToUnit(Unit.meter) == that.convertToUnit(Unit.meter);
+        return new Length(magnitude, LengthUnit.kilometer);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(magnitude);
+    Length createMeasurement(double magnitude, Unit unit) {
+        return new Length(magnitude, unit);
     }
 
 
 }
+
+
 
 
